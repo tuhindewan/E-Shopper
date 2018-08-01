@@ -46,17 +46,33 @@
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<h2>Login to your account</h2>
-					<form class="form-horizontal" action="" method="post">
+
+					<?php
+						$message = Session::get('message');
+						if ($message) { ?>
+							<div class="alert alert-danger">
+							    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ $message }}
+							 </div>
+					<?php	
+						}
+
+						Session::put('message',null);
+					?>
+					
+
+					
+					<form class="form-horizontal" action="{{url('/admin-dashboard')}}" method="post">
+						{{ csrf_field() }}
 						<fieldset>
 							<div class="input-prepend" title="Email">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="email"  type="text" placeholder="type email"/>
+								<input class="input-large span10" name="admin_email"  type="text" placeholder="type email"/>
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="password"  type="password" placeholder="type password"/>
+								<input class="input-large span10" name="admin_password"  type="password" placeholder="type password"/>
 							</div>
 
 							<div class="button-login">	
