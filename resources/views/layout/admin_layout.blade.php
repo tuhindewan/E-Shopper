@@ -336,8 +336,16 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
-						<li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
+
+						<li><a href="{{ URL::to('/dashboard') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Category</span></a>
+							<ul>
+								<li><a class="submenu" href="{{ URL::to('/add_category') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Category</span></a></li>
+								<li><a class="submenu" href="{{ URL::to('/all_category') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Category</span></a></li>
+							</ul>	
+						</li>
 						<li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
 						<li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
 						<li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
@@ -460,7 +468,20 @@
 		<script src="{{ asset('backend/js/retina.js')}}"></script>
 
 		<script src="{{ asset('backend/js/custom.js')}}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 	<!-- end: JavaScript-->
+
+	<script language="JavaScript" type="text/javascript">
+	$(document).ready(function(){
+	    $("#category_delete").click(function(e){
+	        if(!confirm('Are you sure?')){
+	            e.preventDefault();
+	            return false;
+	        }
+	        return true;
+	    });
+	});
+	</script>
 	
 </body>
 

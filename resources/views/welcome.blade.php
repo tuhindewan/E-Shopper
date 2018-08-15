@@ -524,5 +524,6 @@
     <script src="{{ asset('frontend/assets/js/price-range.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/jquery.prettyPhoto.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+    
 </body>
 </html>
