@@ -346,7 +346,13 @@
 								<li><a class="submenu" href="{{ URL::to('/all_category') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Category</span></a></li>
 							</ul>	
 						</li>
-						<li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Manufacture</span></a>
+							<ul>
+								<li><a class="submenu" href="{{ URL::to('/add_manufacture') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Manufacture</span></a></li>
+								<li><a class="submenu" href="{{ URL::to('/all_manufacture') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Manufacture</span></a></li>
+							</ul>	
+						</li>
 						<li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
 						<li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
 						<li>

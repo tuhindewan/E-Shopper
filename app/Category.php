@@ -32,4 +32,10 @@ class Category extends Model
     			'category_description'=>$input['category_description']
     		]);
     }
+
+    public static function getAllActiveCategories(){
+        return DB::table('tbl_category')
+            ->where('publication_status',1)
+            ->get();
+    }
 }
