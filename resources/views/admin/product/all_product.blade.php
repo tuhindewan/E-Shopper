@@ -43,7 +43,7 @@
 						<td>{{ $i++ }}</td>
 						<td>{{ $product->product_name }}</td>
 						<td class="center">{{ $product->product_short_description }}</td>
-						<td class="center"><img src="{{ URL::to($product->product_image) }}" style="height: 80px;width: 8opx;"></td>
+						<td class="center"><img src="{{ URL::to($product->product_image) }}" style="height: 80px;width: 80px;"></td>
 						<td class="center">{{ $product->product_price }}</td>
 						<td class="center">{{ $product->category_name }}</td>
 						<td class="center">{{ $product->manufacture_name }}</td>
@@ -56,18 +56,18 @@
 						</td>
 						<td class="center">
 							@if($product->publication_status == 1)
-							<a class="btn btn-danger" href="{{ URL::to('/inactive_category/') }}">
+							<a class="btn btn-danger" href="{{ URL::to('/inactive_product/'.$product->product_id) }}">
 								<i class="halflings-icon white thumbs-down "></i>                                            
 							</a>
 							@else
-							<a class="btn btn-success" href="{{ URL::to('/active_category/') }}">
+							<a class="btn btn-success" href="{{ URL::to('/active_product/'.$product->product_id) }}">
 								<i class="halflings-icon white thumbs-up"/>                                        
 							</a>
 							@endif
-							<a class="btn btn-info" href="{{ URL::to('/edit_category/') }}">
+							<a class="btn btn-info" href="{{ URL::to('/edit_product/'.$product->product_id) }}">
 								<i class="halflings-icon white edit"></i>                                            
 							</a>
-							<a class="btn btn-danger" id="category_delete" href="{{ URL::to('/delete_category/') }}">
+							<a class="btn btn-danger" id="category_delete" href="{{ URL::to('/delete_product/'.$product->product_id) }}">
 								<i class="halflings-icon white trash"></i> 
 								
 							</a>

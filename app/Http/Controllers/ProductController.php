@@ -47,4 +47,55 @@ class ProductController extends Controller
     	/*return $products;*/
     	return view('admin.product.all_product')->with(compact("products"));
     }
+
+    public function inactive_product($product_id){
+    	try {
+    	    $result = Product::changeProductToInactive($product_id);
+    	    $bag = 0;
+    	} catch (Exception $e) {
+    	    $bug = $e->errorInfo[1];
+    	    $bug1 = $e->errorInfo[2];
+    	}
+
+    	if ($bag == 0) {
+    	    Session::flash('success','Publication status has been changed to inactive.');
+    	    return Redirect::to('/all_product');
+    	}
+    	
+    }
+
+    public function active_product($product_id){
+        try {
+            $result = Product::changeProductToActive($product_id);
+            $bag = 0;
+        } catch (Exception $e) {
+            $bag = $e->errorInfo[1];
+            $bag1 = $e->errorInfo[2];
+        }
+
+        if ($bag == 0) {
+            Session::flash('success','Publication status has been changed to active.');
+            return Redirect::to('/all_product');
+        }
+    }
+
+    public function delete_product($product_id){
+        
+        try {
+            $category = Product::findOrFail($product_id);
+            $category->delete();
+            $bug = 0;
+        } catch (\Exception $e) {
+            $bug = $e->errorInfo[1];
+            $bug1 = $e->errorInfo[2];
+        }
+
+        if($bug == 0){
+            return redirect()->back()->with('success','Product Deleted Successfully ');
+        }elseif($bug == 1451){
+                return redirect()->back()->with('error','This Product Id Used AnyWhere.');
+            }else{
+            return redirect()->back()->with('error','Something Error Found !, Please try again.'.$bug1);
+        }
+    }
 }
