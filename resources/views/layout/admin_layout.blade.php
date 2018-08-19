@@ -353,7 +353,13 @@
 								<li><a class="submenu" href="{{ URL::to('/all_manufacture') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Manufacture</span></a></li>
 							</ul>	
 						</li>
-						<li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Product</span></a>
+							<ul>
+								<li><a class="submenu" href="{{ URL::to('/add_product') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Product</span></a></li>
+								<li><a class="submenu" href="{{ URL::to('/all_product') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Product</span></a></li>
+							</ul>	
+						</li>
 						<li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span><span class="label label-important"> 3 </span></a>

@@ -44,3 +44,11 @@ Route::get('/active_manufacture/{manufacture_id}','ManufactureController@active_
 Route::get('/edit_manufacture/{manufacture_id}','ManufactureController@edit_manufacture');
 Route::post('/update_manufacture/{manufacture_id}','ManufactureController@update_manufacture');
 Route::get('/delete_manufacture/{manufacture_id}','ManufactureController@delete_manufacture');
+
+
+
+/*Product Routes*/
+
+Route::get('/add_product','ProductController@add_product');
+Route::post('/save-product','ProductController@save_product');
+Route::get('/all_product','ProductController@all_product');
