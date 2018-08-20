@@ -32,4 +32,13 @@ class Product extends Model
     }
 
 
+    public static function getAllProductsByCategoryId($category_id){
+        return DB::table('tbl_products')->join('tbl_category', 'tbl_products.category_id', '=', 'tbl_category.category_id')->join('tbl_manufacture', 'tbl_products.manufacture_id', '=', 'tbl_manufacture.manufacture_id')->select('tbl_products.*','tbl_category.category_name','tbl_manufacture.manufacture_name')->where('tbl_products.category_id',$category_id)->where('tbl_products.publication_status',1)->limit(18)->get();
+    }
+
+    public static function getAllProductsByManufactureId($manufacture_id){
+        return DB::table('tbl_products')->join('tbl_category', 'tbl_products.category_id', '=', 'tbl_category.category_id')->join('tbl_manufacture', 'tbl_products.manufacture_id', '=', 'tbl_manufacture.manufacture_id')->select('tbl_products.*','tbl_category.category_name','tbl_manufacture.manufacture_name')->where('tbl_products.manufacture_id',$manufacture_id)->where('tbl_products.publication_status',1)->limit(18)->get();
+    }
+
+
 }
