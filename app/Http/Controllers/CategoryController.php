@@ -7,9 +7,13 @@ use App\Category;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Traits\AuthCheck;
+
 class CategoryController extends Controller
-{
+{   
+    use AuthCheck;
     public function index(){
+        $this->adminAuthCheck();
     	return view('admin.category.add_category');
     }
 

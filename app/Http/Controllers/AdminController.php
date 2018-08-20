@@ -6,19 +6,18 @@ use Illuminate\Http\Request;
 use Redirect;
 use DB;
 use App\Admin;
-
 use Illuminate\Support\Facades\Session;
 session_start();
+use App\Http\Traits\AuthCheck;
 
 class AdminController extends Controller
 {
+   use AuthCheck;
    public function index(){
-   	 return view('admin.login');
+      $this->adminLoginCheck();
+   	return view('admin.login');
    }
 
-   public function show_dashboard(){
-   		return view('admin.dashboard');
-   }
 
    public function admin_login(Request $request){
    		$admin_email 	= $request->admin_email;
@@ -38,4 +37,6 @@ class AdminController extends Controller
    			return Redirect::to('/admin');
    		}
    }
+
+   
 }

@@ -19,7 +19,7 @@ Route::get('/', 'HomeController@index');
 
 /*Backend Routes*/
 Route::get('/admin','AdminController@index');
-Route::get('/dashboard','AdminController@show_dashboard');
+Route::get('/dashboard','SuperAdminController@index');
 Route::post('/admin-dashboard','AdminController@admin_login');
 Route::get('/logout','SuperAdminController@logout');
 
