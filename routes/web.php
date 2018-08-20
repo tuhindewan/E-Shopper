@@ -54,3 +54,10 @@ Route::get('/all_product','ProductController@all_product');
 Route::get('/inactive_product/{product_id}','ProductController@inactive_product');
 Route::get('/active_product/{product_id}','ProductController@active_product');
 Route::get('/delete_product/{product_id}','ProductController@delete_product');
+
+
+/*Slider Routes*/
+Route::get('/add_slider','SliderController@add_slider');
+Route::post('/save-slider','SliderController@save_slider');
+Route::get('/all_slider','SliderController@all_slider');
+
