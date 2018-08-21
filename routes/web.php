@@ -24,6 +24,7 @@ Route::get('/product_details/{product_id}','ProductController@product_details');
 
 Route::post('/add_to_cart','CartController@add_to_cart');
 Route::get('/show_cart','CartController@show_cart');
+Route::get('/delete-cart-item/{rowId}','CartController@delete_cart_item');
 
 
 

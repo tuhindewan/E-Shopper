@@ -37,4 +37,9 @@ class CartController extends Controller
 
             return view('pages.add_to_cart')->with(compact('data','categories','manufactures'));
     }
+
+    public function delete_cart_item($rowId){
+        Cart::remove($rowId);
+        return Redirect::to('show_cart');
+    }
 }
