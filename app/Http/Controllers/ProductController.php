@@ -98,4 +98,11 @@ class ProductController extends Controller
             return redirect()->back()->with('error','Something Error Found !, Please try again.'.$bug1);
         }
     }
+
+    public  function product_details($product_id){
+        $categories = Category::getAllActiveCategories();
+        $manufactures = Manufacture::getAllActiveManufactures();
+        $product = Product::getProductDetailsById($product_id);
+        return view('pages.product_details')->with(compact('product','categories','manufactures'));
+    }
 }

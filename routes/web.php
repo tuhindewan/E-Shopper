@@ -15,8 +15,10 @@
 Route::get('/', 'HomeController@index');
 
 /*Show products by category name*/
-Route::get('/product_by_category/{category_id}','HomeController@product_by_category');/*Show products by manufacture name*/
+Route::get('/product_by_category/{category_id}','HomeController@product_by_category');
+/*Show products by manufacture name*/
 Route::get('/product_by_manufacture/{manufacture_id}','HomeController@product_by_manufacture');
+Route::get('/product_details/{product_id}','ProductController@product_details');
 
 
 

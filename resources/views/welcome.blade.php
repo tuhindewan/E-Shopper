@@ -230,7 +230,13 @@
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
                                 @foreach($manufactures as $manufacture)
-                                    <li><a href="{{ URL::to('/product_by_manufacture/'.$manufacture->manufacture_id) }}"> <span class="pull-right">(50)</span>{{ $manufacture->manufacture_name }}</a></li>
+                                    <li>
+                                        <a href="{{ URL::to('/product_by_manufacture/'.$manufacture->manufacture_id) }}">
+                                            <?php $count = DB::table('tbl_products')->where('publication_status',1)->where('manufacture_id',$manufacture->manufacture_id)->count();?> 
+                                            <span class="pull-right">({{ $count }})</span>
+                                            {{ $manufacture->manufacture_name }}
+                                        </a>
+                                    </li>
                                 @endforeach
                                 </ul>
                             </div>
