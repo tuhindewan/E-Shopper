@@ -35,9 +35,12 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="{{ $content->qty }}" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<form action="{{ url('/update_cart_item') }}" method="post">
+										{{ csrf_field() }}
+										<input class="cart_quantity_input" type="number" name="qty" value="{{ $content->qty }}" autocomplete="off" size="2">
+										<input type="hidden" name="rowId" value="{{ $content->rowId }}">
+										<input type="submit" name="update" value="Update">
+									</form>
 								</div>
 							</td>
 							<td class="cart_total">
