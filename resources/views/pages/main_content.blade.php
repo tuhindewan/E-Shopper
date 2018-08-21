@@ -11,13 +11,13 @@
 	                    <img src="{{ asset($product->product_image)}}" style="width: 255px;height: 255px;" alt="" />
 	                    <h2>Tk {{ $product->product_price }}</h2>
 	                    <p>{{ $product->product_name }}</p>
-	                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+	                    <a href="{{ URL::to('/product_details/'.$product->product_id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 	                </div>
 	                <div class="product-overlay">
 	                    <div class="overlay-content">
 	                        <h2>Tk {{ $product->product_price }}</h2>
 	                        <p>{{ $product->product_name }}</p>
-	                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+	                        <a href="{{ URL::to('/product_details/'.$product->product_id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 	                    </div>
 	                </div>
 	            </div>

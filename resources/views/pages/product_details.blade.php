@@ -20,12 +20,16 @@
 	    			<img src="{{ asset('frontend/assets/images/product-details/rating.png') }}" alt="" />
 	    			<span>
 	    				<span>TK {{ $data->product_price }}</span>
-	    				<label>Quantity:</label>
-	    				<input type="text" value="3" />
-	    				<button type="button" class="btn btn-fefault cart">
-	    					<i class="fa fa-shopping-cart"></i>
-	    					Add to cart
-	    				</button>
+						<form action="{{ url('/add_to_cart') }}" method="post">
+							{{ csrf_field() }}
+							<label>Quantity:</label>
+							<input type="number" name="quantity" value="1" />
+							<input type="hidden" value="{{ $data->product_id }}" name="product_id">
+							<button type="submit" class="btn btn-fefault cart">
+								<i class="fa fa-shopping-cart"></i>
+								Add to cart
+							</button>
+						</form>
 	    			</span>
 	    			<p><b>Availability:</b> In Stock</p>
 	    			<p><b>Condition:</b> New</p>

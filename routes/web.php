@@ -20,6 +20,10 @@ Route::get('/product_by_category/{category_id}','HomeController@product_by_categ
 Route::get('/product_by_manufacture/{manufacture_id}','HomeController@product_by_manufacture');
 Route::get('/product_details/{product_id}','ProductController@product_details');
 
+/*Cart Routes*/
+
+Route::post('/add_to_cart','CartController@add_to_cart');
+Route::get('/show_cart','CartController@show_cart');
 
 
 
