@@ -30,8 +30,12 @@ Route::post('/update_cart_item','CartController@update_cart_item');
 Route::get('/user_login_check','CheckoutController@user_login_check');
 Route::post('/customer_registration','CheckoutController@customer_registration');
 Route::get('/checkout','CheckoutController@checkout');
+Route::post('/save_shipping_details','CheckoutController@save_shipping_details');
 
 
+/*Customer auth routes*/
+Route::get('/customer_logout','CheckoutController@customer_logout');
+Route::post('/customer_login','CheckoutController@customer_login');
 
 /*Backend Routes*/
 Route::get('/admin','AdminController@index');
