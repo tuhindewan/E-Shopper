@@ -21,11 +21,15 @@ Route::get('/product_by_manufacture/{manufacture_id}','HomeController@product_by
 Route::get('/product_details/{product_id}','ProductController@product_details');
 
 /*Cart Routes*/
-
 Route::post('/add_to_cart','CartController@add_to_cart');
 Route::get('/show_cart','CartController@show_cart');
 Route::get('/delete-cart-item/{rowId}','CartController@delete_cart_item');
 Route::post('/update_cart_item','CartController@update_cart_item');
+
+/*checkout Routes*/
+Route::get('/user_login_check','CheckoutController@user_login_check');
+Route::post('/customer_registration','CheckoutController@customer_registration');
+Route::get('/checkout','CheckoutController@checkout');
 
 
 
