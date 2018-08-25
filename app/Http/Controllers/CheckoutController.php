@@ -7,6 +7,7 @@ use App\Customer;
 use Session;
 use Redirect;
 use DB;
+use Cart;
 
 class CheckoutController extends Controller
 {
@@ -72,8 +73,28 @@ class CheckoutController extends Controller
 
     public function save_payment_gateway(Request $request){
     	$payment_gateway = $request->payment_gateway;
-    	$shipping_id = Session::get('shipping_id');
-    	$customer_id = Session::get('customer_id');
-    	return $customer_id;
+    	$paymentData = array();
+    	$paymentData['payment_method'] = $payment_gateway;
+    	$paymentData['payment_status'] = "pending";
+    	$payment_id  = DB::table('tbl_payment')->insertGetId($paymentData);
+
+    	$orderData = array();
+    	$orderData['customer_id'] = Session::get('customer_id');
+    	$orderData['shipping_id'] = Session::get('shipping_id');
+    	$orderData['payment_id']  = $payment_id;
+    	$orderData['order_total'] = Cart::total();
+    	$orderData['order_status'] = "pending";
+    	$order_id = DB::table('tbl_order')->insertGetId($orderData);
+
+    	$contents = Cart::content();
+    	$orderDData = array();
+    	foreach ($contents as $content) {
+    		$orderDData['order_id'] = $order_id;
+    		$orderDData['product_id'] = $content->id;
+    		$orderDData['product_name'] = $content->name;
+    		$orderDData['product_price'] = $content->price;
+    		$orderDData['product_sales_quantity'] = $content->qty;
+    		$result = DB::table('tbl_order_details')->insert($orderDData);
+    	}	
     }
 }
