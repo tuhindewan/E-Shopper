@@ -65,4 +65,15 @@ class CheckoutController extends Controller
     	Session::put('shipping_id',$shipping_id);
     	return Redirect::to('/payment');
     }
+
+    public function payment(){
+    	return view('pages.payment');
+    }
+
+    public function save_payment_gateway(Request $request){
+    	$payment_gateway = $request->payment_gateway;
+    	$shipping_id = Session::get('shipping_id');
+    	$customer_id = Session::get('customer_id');
+    	return $customer_id;
+    }
 }

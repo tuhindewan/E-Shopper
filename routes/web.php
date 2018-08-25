@@ -31,6 +31,8 @@ Route::get('/user_login_check','CheckoutController@user_login_check');
 Route::post('/customer_registration','CheckoutController@customer_registration');
 Route::get('/checkout','CheckoutController@checkout');
 Route::post('/save_shipping_details','CheckoutController@save_shipping_details');
+Route::get('/payment','CheckoutController@payment');
+Route::post('/save_payment_gateway','CheckoutController@save_payment_gateway');
 
 
 /*Customer auth routes*/

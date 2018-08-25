@@ -89,9 +89,12 @@
                                 <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 
-                                <?php $customer_id = Session::get('customer_id');?>
-                                @if($customer_id != NULL)
+                                <?php $customer_id = Session::get('customer_id');
+                                 $shipping_id = Session::get('shipping_id');?>
+                                @if($customer_id != NULL && $shipping_id == NULL)
                                 <li><a href="{{ URL::to('/checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                @elseif($customer_id != NULL && $shipping_id != NULL)
+                                <li><a href="{{ URL::to('/payment') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                 @else
                                 <li><a href="{{ URL::to('/user_login_check') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                 @endif
