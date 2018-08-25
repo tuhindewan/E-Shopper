@@ -368,7 +368,7 @@
 								<li><a class="submenu" href="{{ URL::to('/all_slider') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Slider</span></a></li>
 							</ul>	
 						</li>
-						<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a></li>
+						<li><a href="{{ URL::to('/manage_order') }}"><i class="icon-list-alt"></i><span class="hidden-tablet"> Manage Order</span></a></li>
 						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Typography</span></a></li>
 						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>
 						<li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tables</span></a></li>

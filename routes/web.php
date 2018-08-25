@@ -45,6 +45,9 @@ Route::get('/dashboard','SuperAdminController@index');
 Route::post('/admin-dashboard','AdminController@admin_login');
 Route::get('/logout','SuperAdminController@logout');
 
+/*Manage order routes*/
+Route::get('/manage_order','CheckoutController@manage_order');
+
 
 /*Category Routes*/
 Route::get('/add_category','CategoryController@index');

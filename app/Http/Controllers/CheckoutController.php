@@ -95,6 +95,16 @@ class CheckoutController extends Controller
     		$orderDData['product_price'] = $content->price;
     		$orderDData['product_sales_quantity'] = $content->qty;
     		$result = DB::table('tbl_order_details')->insert($orderDData);
-    	}	
+    	}
+
+    	if ($payment_gateway == "handcash") {
+    			Cart::destroy();
+    			return view('pages.handcash');
+    		}	
+    }
+
+    public function manage_order(){
+        $orders = DB::table('tbl_order')->join('tbl_users', 'tbl_order.customer_id', '=', 'tbl_users.user_id')->select('tbl_order.*','tbl_users.user_name')->get();
+        return view('admin.order.manage_order')->with(compact('orders'));
     }
 }
